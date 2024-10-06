@@ -16,14 +16,21 @@ const Signup = () => {
             <input
               className="w-full px-4 py-2 rounded"
               type="email"
-              placeholder="Enter your email address"
+              placeholder="Enter fullname"
+            />
+          </div>
+          <div className="w-full mt-2">
+            <input
+              className="w-full px-4 py-2 rounded"
+              type="email"
+              placeholder="Enter email address"
             />
           </div>
           <div className="w-full mt-2 flex">
             <input
               className="w-[90%] px-4 py-2 rounded-tl rounded-bl"
               type={showPassword ? "text" : "password"}
-              placeholder="Enter your email password"
+              placeholder="Enter  password"
             />
             <button
               type="button"
