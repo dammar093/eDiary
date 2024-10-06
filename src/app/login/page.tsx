@@ -11,9 +11,6 @@ const Login = () => {
         <h1 className="text-2xl font-semibold text-center capitalize text-[#fff]">
           Welcome Back
         </h1>
-        <h2 className="text-xl font-semibold text-center  text-[#fff]">
-          Login to the E-Diary
-        </h2>
         <form className="mt-10 w-full">
           <div className="w-full">
             <input
@@ -50,7 +47,7 @@ const Login = () => {
           </div>
           <div className="mt-2">
             <p>
-              Did not have an accound{" "}
+              Did not have an account{" "}
               <Link className="text-blue-800" href={"/signup"}>
                 Register
               </Link>
