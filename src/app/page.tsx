@@ -1,21 +1,13 @@
-"use client";
+import Signin from "@/components/Login";
 import React from "react";
-import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar";
-
-const Home = () => {
-  const router = useRouter();
-
-  const user = null;
-  if (!user) {
-    return router.push("/login");
-  }
-
+const Login = () => {
   return (
-    <main>
-      <Navbar />
-    </main>
+    <section>
+      <main>
+        <Signin />
+      </main>
+    </section>
   );
 };
 
-export default Home;
+export default Login;
