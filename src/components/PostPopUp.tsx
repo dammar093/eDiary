@@ -7,6 +7,7 @@ import Image from "next/image";
 import profile from "@/public/profile.jpg";
 import style from "@/components/Story.module.css";
 import Comments from "./Comments";
+import { user } from "@/data/data";
 const PostPopUp = ({
   fn,
   fn1
@@ -24,14 +25,14 @@ const PostPopUp = ({
         />
       </div>
       <div className="w-full md:w-[60%] p-2">
-        <ProfileTop fn1={fn1} />
+        <ProfileTop fn1={fn1} author={user} />
         <hr />
         <div
           className={`h-fit md:h-[333px] overflow-y-scroll scroll-smooth ${style.example}`}
         >
           <div className="mt-2">
             <div>
-              <Profile />
+              <Profile author={user} />
             </div>
             <div className="text-gray-600 text-sm pl-14 text-justify">
               न जख्म भरे, न शराब सहारा हुई... न वो लौटे, न मोहब्बत दोबारा हुई
@@ -45,7 +46,7 @@ const PostPopUp = ({
           </div>
         </div>
         <div className="border-t border-b border-gray-600 p-1">
-          <LikeComment fn={fn} />
+          <LikeComment isLiked={true} fn={fn} />
         </div>
         <div>
           <WriteComment />

@@ -1,9 +1,11 @@
 import React from "react";
 
 const LikeComment = ({
-  fn
+  fn,
+  isLiked
 }: {
   fn: React.Dispatch<React.SetStateAction<boolean>>;
+  isLiked: boolean;
 }) => {
   return (
     <>
@@ -12,7 +14,8 @@ const LikeComment = ({
           <div className="cursor-pointer">
             <svg
               className="x1lliihq x1n2onr6 x5n08af"
-              fill="currentColor"
+              fill={isLiked ? "red" : "currentColor"}
+              fillRule="inherit"
               height="24"
               role="img"
               viewBox="0 0 24 24"

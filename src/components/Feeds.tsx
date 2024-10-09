@@ -1,5 +1,6 @@
 import React from "react";
 import Post from "./Post";
+import { posts } from "@/data/data";
 
 const Feeds = ({
   fn,
@@ -11,12 +12,13 @@ const Feeds = ({
   return (
     <section>
       <main className="relative">
-        <div className="my-1">
-          <Post fn={fn} fn1={fn1} />
-        </div>
-        <div className="my-1">
-          <Post fn={fn} fn1={fn1} />
-        </div>
+        {posts.map((post) => {
+          return (
+            <div className="my-1" key={post.id}>
+              <Post fn={fn} fn1={fn1} post={post} />
+            </div>
+          );
+        })}
       </main>
     </section>
   );

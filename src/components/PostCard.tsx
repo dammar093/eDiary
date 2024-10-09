@@ -1,23 +1,22 @@
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import LikeComment from "./LikeComment";
 import WriteComment from "./WriteComment";
+import { Posts } from "@/data/data";
 const PostCard = ({
-  file,
+  post,
   fn
 }: {
-  file: StaticImageData;
+  post: Posts;
   fn: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <div>
       <div className=" border border-gray-400">
-        <Image src={file} alt="profile" />
+        <Image className="w-full h-full" src={post.post} alt="profile" />
       </div>
-      <LikeComment fn={fn} />
-      <div className="mt-2 text-[14px] text-gray-600">
-        न जख्म भरे, न शराब सहारा हुई... न वो लौटे, न मोहब्बत दोबारा हुई
-      </div>
+      <LikeComment fn={fn} isLiked={post.isLiked} />
+      <div className="mt-2 text-[14px] text-gray-600">{post?.caption}</div>
       <div className="mt-1 text-gray-500 text-sm">
         <span className="cursor-pointer" onClick={() => fn(true)}>
           View all 2 comments

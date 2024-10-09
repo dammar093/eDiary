@@ -2,16 +2,19 @@ import React from "react";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { PiDotBold } from "react-icons/pi";
 import Profile from "./Profile";
+import { Users } from "@/data/data";
 
 const ProfileTop = ({
-  fn1
+  fn1,
+  author
 }: {
   fn1: React.Dispatch<React.SetStateAction<boolean>>;
+  author: Users;
 }) => {
   return (
     <div className="flex justify-between items-center mb-2">
       <div className="flex items-center">
-        <Profile />
+        <Profile author={author} />
         <span className="text-gray-600">
           <PiDotBold />
         </span>
