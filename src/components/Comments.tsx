@@ -1,12 +1,13 @@
 import React from "react";
 import Profile from "./Profile";
-import { user } from "@/data/data";
+import { Comments as Comment } from "@/data/data";
 
-const Comments = () => {
+const Comments = ({ comment }: { comment: Comment }) => {
   return (
     <div className="flex items-center gap-2">
-      <Profile author={user} />
-      <span className="text-gray-600 text-sm">Nice❤️</span>
+      <Profile author={comment.author} />
+
+      <span className="text-gray-600 text-sm">{comment.comment}</span>
     </div>
   );
 };

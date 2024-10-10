@@ -1,21 +1,19 @@
 import React from "react";
 import Post from "./Post";
-import { posts } from "@/data/data";
+import { useSelector } from "react-redux";
+import { PostsState } from "@/features/posts";
 
-const Feeds = ({
-  fn,
-  fn1
-}: {
-  fn: React.Dispatch<React.SetStateAction<boolean>>;
-  fn1: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const Feeds = () => {
+  const { posts } = useSelector((state: PostsState) => state.posts);
+  console.log(posts);
+
   return (
     <section>
       <main className="relative">
-        {posts.map((post) => {
+        {posts?.data?.map((post: any) => {
           return (
-            <div className="my-1" key={post.id}>
-              <Post fn={fn} fn1={fn1} post={post} />
+            <div className="my-1" key={post?.id}>
+              <Post post={post} />
             </div>
           );
         })}

@@ -10,29 +10,32 @@ export interface Users {
   fullName: string;
   isLogedIn: boolean;
   username: string;
+  isFollow: boolean;
 }
 
 export interface Comments {
   id: number;
   author: Users;
-  comment: string;
+  comment: string; // Changed from string[] to string
 }
+
 export interface Posts {
   id: number;
   author: Users;
   post: StaticImageData;
   likes: number;
-  comments: Comments[];
+  comments: Comments[]; // Changed to array of Comments
   isLiked: boolean;
-  isFollow: boolean;
   caption?: string;
 }
+
 export const user: Users = {
   id: 10,
   profile: profile,
   fullName: "Dammar Singh Rana",
   isLogedIn: true,
-  username: "dyams093"
+  username: "dyams093",
+  isFollow: false
 };
 
 export const users: Users[] = [
@@ -41,21 +44,24 @@ export const users: Users[] = [
     profile: deepak,
     fullName: "Deepak",
     isLogedIn: false,
-    username: "Deepak Raj Pandy"
+    username: "Deepak Raj Pandy",
+    isFollow: true
   },
   {
     id: 2,
     profile: bire,
     fullName: "Birendra Singh Dhami",
     isLogedIn: false,
-    username: "biren"
+    username: "biren",
+    isFollow: false
   },
   {
     id: 3,
     profile: pathak,
     fullName: "Tirth Rah Pathak",
     isLogedIn: false,
-    username: "tirth"
+    username: "tirth",
+    isFollow: true
   }
 ];
 
@@ -67,7 +73,8 @@ export const posts: Posts[] = [
       profile: deepak,
       fullName: "Deepak Raj Pandy",
       isLogedIn: false,
-      username: "deepak"
+      username: "deepak",
+      isFollow: true
     },
     post: deepak,
     caption:
@@ -81,22 +88,23 @@ export const posts: Posts[] = [
           profile: profile,
           fullName: "dyams093",
           isLogedIn: false,
-          username: "Dammar Singh Rana"
+          username: "Dammar Singh Rana",
+          isFollow: true
         },
-        comment: "Nice"
+        comment: "Nice" // Single string for the comment
       }
     ],
-    isLiked: true,
-    isFollow: false
+    isLiked: true
   },
   {
     id: 2,
     author: {
-      id: 1,
+      id: 2,
       profile: bire,
       fullName: "Birendra Singh Dhami",
       isLogedIn: false,
-      username: "bire"
+      username: "bire",
+      isFollow: false
     },
     post: bire,
     caption: "न जख्म भरे, न शराब सहारा हुई... न वो लौटे, न मोहब्बत दोबारा हुई",
@@ -105,26 +113,27 @@ export const posts: Posts[] = [
       {
         id: 1,
         author: {
-          id: 1,
+          id: 10,
           profile: profile,
-          fullName: "dyams093",
+          fullName: "Dammar Singh Rana",
           isLogedIn: false,
-          username: "Dammar Singh Rana"
+          username: "dyams093",
+          isFollow: false
         },
         comment: "Nice"
       }
     ],
-    isLiked: true,
-    isFollow: true
+    isLiked: true
   },
   {
     id: 3,
     author: {
-      id: 1,
+      id: 3,
       profile: pathak,
       fullName: "Tirth Raj Pathak",
       isLogedIn: false,
-      username: "pathak"
+      username: "pathak",
+      isFollow: true
     },
     post: pathak,
     caption:
@@ -134,16 +143,16 @@ export const posts: Posts[] = [
       {
         id: 1,
         author: {
-          id: 1,
+          id: 10,
           profile: profile,
-          fullName: "dyams093",
+          fullName: "Dammar Singh Rana",
           isLogedIn: false,
-          username: "Dammar Singh Rana"
+          username: "dyams093",
+          isFollow: false
         },
         comment: "Nice"
       }
     ],
-    isLiked: false,
-    isFollow: false
+    isLiked: false
   }
 ];

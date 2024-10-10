@@ -1,12 +1,11 @@
+import { Posts } from "@/data/data";
+import { setPostById } from "@/features/posts";
+import { setPopUpPost } from "@/features/utils";
 import React from "react";
+import { useDispatch } from "react-redux";
 
-const LikeComment = ({
-  fn,
-  isLiked
-}: {
-  fn: React.Dispatch<React.SetStateAction<boolean>>;
-  isLiked: boolean;
-}) => {
+const LikeComment = ({ post }: { post: Posts }) => {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="flex justify-between items-center">
@@ -14,7 +13,7 @@ const LikeComment = ({
           <div className="cursor-pointer">
             <svg
               className="x1lliihq x1n2onr6 x5n08af"
-              fill={isLiked ? "red" : "currentColor"}
+              fill={post?.isLiked ? "red" : "currentColor"}
               fillRule="inherit"
               height="24"
               role="img"
@@ -25,7 +24,13 @@ const LikeComment = ({
             </svg>
           </div>
 
-          <div className="cursor-pointer" onClick={() => fn(true)}>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              dispatch(setPopUpPost(true));
+              dispatch(setPostById(post));
+            }}
+          >
             <svg
               className="x1lliihq x1n2onr6 x5n08af"
               fill="currentColor"

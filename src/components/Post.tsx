@@ -4,35 +4,30 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import PostCard from "./PostCard";
 import Profile from "./Profile";
 import { Posts } from "@/data/data";
+import { useDispatch } from "react-redux";
+import { setPopMenu } from "@/features/utils";
 
-const Post = ({
-  fn,
-  fn1,
-  post
-}: {
-  fn: React.Dispatch<React.SetStateAction<boolean>>;
-  fn1: React.Dispatch<React.SetStateAction<boolean>>;
-  post: Posts;
-}) => {
+const Post = ({ post }: { post: Posts }) => {
+  const dispatch = useDispatch();
   return (
     <section>
       <div className="flex justify-between items-center">
         <div className="flex items-center">
-          <Profile author={post.author} />
+          <Profile author={post?.author} />
           <span>
             <LuDot />
           </span>
           <span className="text-gray-600 text-sm">
             {new Date().getMinutes()}m
           </span>
-          {post.isFollow && (
+          {post?.author.isFollow && (
             <div className="flex items-center">
               {" "}
               <span>
                 <LuDot />
               </span>
               <button className="text-blue-600 font-medium hover:text-gray-600">
-                {post.isFollow && "Follow"}
+                Follow
               </button>
             </div>
           )}
@@ -40,14 +35,14 @@ const Post = ({
         <div>
           <button
             className="font-medium text-gray-600 text-xl"
-            onClick={() => fn1(true)}
+            onClick={() => dispatch(setPopMenu(true))}
           >
             <BiDotsHorizontalRounded />
           </button>
         </div>
       </div>
       <div className="w-full  mt-3">
-        <PostCard post={post} fn={fn} />
+        <PostCard post={post} />
       </div>
     </section>
   );

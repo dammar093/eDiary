@@ -125,7 +125,7 @@ const Sidebar = () => {
           <Link href={"/reels"}>
             <div
               className={` ${
-                pathname === "/search" ? "bg-[#80808043]" : "bg-transparent"
+                pathname === "/reels" ? "bg-[#80808043]" : "bg-transparent"
               }  hover:bg-[#80808043] p-2 rounded flex items-center gap-2 md:px-2 text-xl  text-gray-600 font-medium mt-2`}
             >
               <svg

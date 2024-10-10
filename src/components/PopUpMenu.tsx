@@ -1,10 +1,9 @@
+import { setPopMenu } from "@/features/utils";
 import React from "react";
+import { useDispatch } from "react-redux";
 
-const PopUpMenu = ({
-  fn1
-}: {
-  fn1: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const PopUpMenu = () => {
+  const dispatch = useDispatch();
   return (
     <div className="w-[80%] md:w-[30%] bg-white p-2">
       <button className="text-gray-600 font-medium w-full py-2">Edit</button>
@@ -25,7 +24,7 @@ const PopUpMenu = ({
       <hr />
       <button
         className="text-gray-600 font-medium w-full py-1"
-        onClick={() => fn1(false)}
+        onClick={() => dispatch(setPopMenu(false))}
       >
         Cancel
       </button>
